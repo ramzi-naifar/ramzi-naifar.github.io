@@ -1,0 +1,49 @@
+/* ── DARK MODE VARIABLE OVERRIDES ── */
+body.dark {
+  --white:     #0f1923;
+  --off-white: #111d2b;
+  --light:     #162031;
+  --gray:      #8fa3bb;
+  --text:      #c8d6e5;
+  --border:    #1e3454;
+  --blue-pale: #0d1f33;
+}
+
+/* ── NAVBAR ── */
+body.dark #navbar {
+  background: rgba(15, 25, 36, 0.97);
+  border-bottom-color: #1e3454;
+}
+body.dark .nav-brand  { color: #c8ddf0; }
+body.dark .nav-links a { color: #8fa3bb; }
+
+/* ── THEME TOGGLE ── */
+body.dark #theme-toggle { border-color: #1e3454; color: #8fa3bb; }
+body.dark #theme-toggle:hover { border-color: var(--blue-light); color: var(--blue-light); background: #0d1f33; }
+body.dark .icon-moon { display: none; }
+body.dark .icon-sun  { display: block; }
+
+/* ── HEADINGS ── */
+body.dark .section-title,
+body.dark .project-title,
+body.dark .wcard-title,
+body.dark .about-stack-title,
+body.dark .rcard-val { color: #c8ddf0; }
+
+/* ── METRICS ── */
+body.dark .ms-c1 .ms-val { color: #9dc8ee; }
+body.dark .ms-c2 .ms-val { color: #7db8e8; }
+body.dark .metrics-strip  { background: #0d1f33; border-color: #0d1f33; }
+
+/* ── COMPONENTS ── */
+body.dark .chip           { background: #0d1f33; border-color: rgba(46, 141, 232, 0.2); color: #a8d4ff; }
+body.dark .sch            { background: #111d2b; border-color: #1e3454; color: #8fa3bb; }
+body.dark .section-alt .sch { background: #0f1923; }
+body.dark .challenge-list li  { background: #0d1f33; }
+body.dark .project-item   { border-bottom-color: #1e3454; }
+body.dark .narrative-label::after { background: #1e3454; }
+body.dark .wcard:hover    { box-shadow: 0 4px 20px rgba(46, 141, 232, 0.1); }
+
+/* ── DIAGRAMS ── */
+body.dark .diagram-wrap            { background: #111d2b; border-color: #1e3454; }
+body.dark .section-alt .diagram-wrap { background: #0f1923; }

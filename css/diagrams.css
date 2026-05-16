@@ -1,0 +1,52 @@
+/* ── DIAGRAM BLOCK ── */
+.diagram-block { margin: 24px 0 28px; }
+
+.diagram-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+}
+
+.diagram-wrap {
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--white); overflow: hidden; padding: 24px 16px 12px;
+}
+
+.section-alt .diagram-wrap { background: var(--off-white); }
+
+/* ── SVG NODE STYLES ── */
+.diagram-wrap svg .th { font-family: 'Montserrat', sans-serif; fill: #1a2533; font-size: 13px; font-weight: 600; }
+.diagram-wrap svg .ts { font-family: 'Raleway', sans-serif; fill: #6b7a8d; font-size: 11.5px; font-weight: 400; }
+.diagram-wrap svg .arr { fill: none; stroke: #a0b5cc; stroke-width: 1.5px; }
+.diagram-wrap svg .node { cursor: default; }
+
+/* teal */
+.diagram-wrap svg .c-teal rect { fill: #e6f7f2; stroke: #0b8c6e; stroke-width: 1px; }
+.diagram-wrap svg .c-teal .th { fill: #0b5c48; }
+.diagram-wrap svg .c-teal .ts { fill: #0b8c6e; }
+
+/* coral / red */
+.diagram-wrap svg .c-coral rect { fill: #fdf0ec; stroke: #c94e2e; stroke-width: 1px; }
+.diagram-wrap svg .c-coral .th { fill: #7a2012; }
+.diagram-wrap svg .c-coral .ts { fill: #c94e2e; }
+
+/* blue */
+.diagram-wrap svg .c-blue rect { fill: #e8f2fb; stroke: #1a6fc4; stroke-width: 1px; }
+.diagram-wrap svg .c-blue .th { fill: #003B6F; }
+.diagram-wrap svg .c-blue .ts { fill: #1a6fc4; }
+
+/* purple */
+.diagram-wrap svg .c-purple rect { fill: #f0ecfb; stroke: #5b3fa6; stroke-width: 1px; }
+.diagram-wrap svg .c-purple .th { fill: #3a2469; }
+.diagram-wrap svg .c-purple .ts { fill: #5b3fa6; }
+
+/* gray */
+.diagram-wrap svg .c-gray rect { fill: #f0f2f5; stroke: #8a9ab0; stroke-width: 1px; }
+.diagram-wrap svg .c-gray .th { fill: #2c3e50; }
+.diagram-wrap svg .c-gray .ts { fill: #6b7a8d; }
+
+/* amber */
+.diagram-wrap svg .c-amber rect { fill: #fef6e6; stroke: #b87400; stroke-width: 1px; }
+.diagram-wrap svg .c-amber .th { fill: #5c3a00; }
+.diagram-wrap svg .c-amber .ts { fill: #b87400; }

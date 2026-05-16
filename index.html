@@ -1,441 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ramzi Naifar — DevOps Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-/* ── RESET & BASE ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue-dark:#003B6F;
-  --blue:#0057A8;
-  --blue-mid:#1a6fc4;
-  --blue-light:#2E8DE8;
-  --blue-pale:#e8f2fb;
-  --white:#ffffff;
-  --off-white:#f9fafb;
-  --light:#eef3f8;
-  --gray:#6b7a8d;
-  --dark:#1a2533;
-  --text:#2c3e50;
-  --border:#d0dce8;
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Raleway',sans-serif;
-  font-weight:400;
-  color:var(--text);
-  background:var(--white);
-  overflow-x:hidden;
-}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramzi Naifar — DevOps Engineer</title>
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--light)}
-::-webkit-scrollbar-thumb{background:var(--blue-light);border-radius:3px}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-/* ── NAV ── */
-#navbar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:64px;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow .3s;
-}
-#navbar.scrolled{box-shadow:0 2px 20px rgba(0,87,168,.1)}
-.nav-brand{
-  font-family:'Montserrat',sans-serif;
-  font-weight:900;font-size:20px;
-  color:var(--blue-dark);text-decoration:none;
-  letter-spacing:-.01em;
-}
-.nav-brand span{color:var(--blue-light)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{
-  font-size:13px;font-weight:600;
-  color:var(--gray);text-decoration:none;
-  letter-spacing:.06em;text-transform:uppercase;
-  transition:color .2s;
-  position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;left:0;bottom:-4px;
-  width:0;height:2px;background:var(--blue-light);
-  transition:width .25s;
-}
-.nav-links a:hover{color:var(--blue)}
-.nav-links a:hover::after{width:100%}
-
-/* ── HERO ── */
-#hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  background:var(--blue-dark);
-  position:relative;overflow:hidden;
-}
-.hero-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:52px 52px;
-  pointer-events:none;
-}
-.hero-glow{
-  position:absolute;right:-100px;top:50%;transform:translateY(-50%);
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(46,141,232,.2) 0%,transparent 65%);
-  pointer-events:none;
-}
-.hero-container{
-  max-width:900px;margin:0 auto;padding:0 48px;
-  position:relative;z-index:1;
-}
-.hero-greeting{
-  font-family:'Montserrat',sans-serif;
-  font-size:14px;font-weight:700;
-  color:var(--blue-light);
-  letter-spacing:.18em;text-transform:uppercase;
-  margin-bottom:20px;
-  opacity:0;animation:fadeUp .6s .1s ease forwards;
-}
-.hero-title{
-  font-family:'Montserrat',sans-serif;
-  font-weight:900;
-  font-size:clamp(44px,7vw,88px);
-  line-height:1;letter-spacing:-.02em;
-  color:var(--white);
-  margin-bottom:20px;
-  opacity:0;animation:fadeUp .6s .25s ease forwards;
-}
-.hero-title span{color:var(--blue-light)}
-.hero-subtitle{
-  font-size:clamp(18px,2.5vw,26px);
-  font-weight:300;
-  color:rgba(255,255,255,0.65);
-  margin-bottom:40px;
-  opacity:0;animation:fadeUp .6s .4s ease forwards;
-}
-.hero-cta{
-  opacity:0;animation:fadeUp .6s .55s ease forwards;
-}
-.btn{
-  display:inline-block;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:14px 36px;border-radius:3px;
-  text-decoration:none;
-  transition:all .25s;
-  cursor:pointer;border:none;
-}
-.btn-primary{
-  background:var(--blue-light);color:var(--white);
-}
-.btn-primary:hover{background:var(--white);color:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
-.btn-outline{
-  background:transparent;color:var(--white);
-  border:2px solid rgba(255,255,255,.5);
-  margin-left:16px;
-}
-.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08);transform:translateY(-2px)}
-
-/* ── SECTIONS ── */
-.section{padding:96px 48px}
-.section-alt{background:var(--off-white)}
-.container{max-width:960px;margin:0 auto}
-
-.section-label{
-  font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blue-light);
-  margin-bottom:12px;
-}
-.section-title{
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(28px,4vw,40px);
-  font-weight:900;color:var(--blue-dark);
-  margin-bottom:16px;letter-spacing:-.01em;
-}
-.section-line{
-  width:52px;height:4px;
-  background:var(--blue-light);
-  border-radius:2px;margin-bottom:48px;
-}
-
-/* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
-.about-text p{
-  font-size:16px;line-height:1.8;color:var(--gray);margin-bottom:16px;
-}
-.about-text p strong{color:var(--text);font-weight:600}
-.about-stack{margin-top:32px}
-.about-stack-title{
-  font-size:12px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--blue-dark);margin-bottom:14px;
-}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  font-size:12px;font-weight:600;
-  padding:5px 14px;border-radius:2px;
-  background:var(--blue-pale);color:var(--blue-dark);
-  border:1px solid rgba(0,87,168,.15);
-  font-family:'Montserrat',sans-serif;
-  letter-spacing:.04em;
-}
-.about-visual{
-  background:var(--blue-dark);border-radius:8px;
-  padding:32px;color:var(--white);
-  font-family:'Montserrat',monospace;font-size:13px;
-  line-height:1.9;
-}
-.av-line{color:rgba(255,255,255,.4)}
-.av-key{color:var(--blue-light)}
-.av-val{color:#a8d4ff}
-.av-str{color:#7ee8c8}
-.av-num{color:#ffcf7e}
-
-/* ── PROJECTS ── */
-.project-item{
-  display:flex;flex-direction:column;
-  gap:32px;align-items:stretch;
-  padding:56px 0;
-  border-bottom:1px solid var(--border);
-}
-.project-item:last-child{border-bottom:none}
-.project-item-header{
-  display:grid;grid-template-columns:2fr 3fr;
-  gap:48px;align-items:start;
-}
-@media(max-width:768px){
-  .project-item-header{grid-template-columns:1fr}
-}
-.project-num{
-  font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:.2em;color:var(--blue-light);
-  margin-bottom:10px;text-transform:uppercase;
-}
-.project-title{
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(22px,3vw,30px);
-  font-weight:900;color:var(--blue-dark);
-  margin-bottom:12px;letter-spacing:-.01em;line-height:1.1;
-}
-.project-desc{
-  font-size:15px;line-height:1.75;color:var(--gray);margin-bottom:24px;
-}
-.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
-.ptag{
-  font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:.06em;
-  padding:4px 11px;border-radius:2px;border:1.5px solid;
-}
-.pt-blue {color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.06)}
-.pt-teal {color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.06)}
-.pt-amber{color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.06)}
-.pt-red  {color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.06)}
-.pt-purple{color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.06)}
-
-/* ── METRICS STRIP ── */
-.metrics-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:6px;
-  overflow:hidden;margin-bottom:28px;
-}
-@media(max-width:640px){.metrics-strip{grid-template-columns:repeat(2,1fr)}}
-.ms-cell{
-  background:var(--white);padding:18px 16px;
-  position:relative;
-}
-.section-alt .ms-cell{background:var(--off-white)}
-.ms-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.ms-c1::before{background:var(--blue-dark)}.ms-c2::before{background:var(--blue)}
-.ms-c3::before{background:var(--blue-mid)}.ms-c4::before{background:var(--blue-light)}
-.ms-val{
-  font-family:'Montserrat',sans-serif;
-  font-size:26px;font-weight:900;
-  letter-spacing:-.01em;line-height:1;margin-bottom:4px;
-}
-.ms-c1 .ms-val{color:var(--blue-dark)}.ms-c2 .ms-val{color:var(--blue)}
-.ms-c3 .ms-val{color:var(--blue-mid)}.ms-c4 .ms-val{color:var(--blue-light)}
-.ms-label{font-size:11px;color:var(--gray);line-height:1.5;font-weight:500}
-
-/* ── NARRATIVE BLOCK LABELS ── */
-.narrative-label{
-  font-family:'Montserrat',sans-serif;
-  font-size:10px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blue-light);
-  margin-bottom:12px;
-  display:flex;align-items:center;gap:10px;
-}
-.narrative-label::after{
-  content:'';flex:1;height:1px;background:var(--border);
-}
-.narrative-block{margin-bottom:32px}
-
-/* ── CHALLENGE LIST ── */
-.challenge-list{list-style:none;margin:0;display:flex;flex-direction:column;gap:8px}
-.challenge-list li{
-  display:flex;gap:12px;align-items:flex-start;
-  font-size:13.5px;color:var(--gray);line-height:1.6;
-  padding:10px 14px;
-  border-left:3px solid var(--blue-light);
-  background:var(--blue-pale);border-radius:0 4px 4px 0;
-}
-.challenge-list li::before{content:'↳';font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;color:var(--blue-light);flex-shrink:0;margin-top:2px}
-
-/* ── WORK CARDS ── */
-.work-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
-.work-cards.cols-2{grid-template-columns:1fr 1fr}
-.work-cards.cols-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.work-cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.work-cards,.work-cards.cols-2,.work-cards.cols-3{grid-template-columns:1fr}}
-.wcard{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:6px;padding:20px;
-  transition:border-color .2s,box-shadow .2s;
-}
-.section-alt .wcard{background:var(--off-white)}
-.wcard:hover{border-color:var(--blue-light);box-shadow:0 4px 20px rgba(0,87,168,.08)}
-.wcard-num{
-  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
-  color:var(--blue-light);letter-spacing:.1em;margin-bottom:8px;
-}
-.wcard-title{font-size:14px;font-weight:600;color:var(--blue-dark);margin-bottom:8px}
-.wcard-body{font-size:13px;color:var(--gray);line-height:1.65}
-.wcard-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.wpill{
-  font-family:'Montserrat',sans-serif;
-  font-size:10px;font-weight:700;letter-spacing:.06em;
-  padding:3px 10px;border-radius:20px;border:1.5px solid;
-}
-.wp-green{color:var(--blue-dark);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.07)}
-.wp-blue {color:var(--blue);border-color:rgba(0,87,168,.3);background:rgba(0,87,168,.07)}
-.wp-purple{color:var(--blue-mid);border-color:rgba(26,111,196,.3);background:rgba(26,111,196,.07)}
-.wp-amber{color:var(--blue-dark);border-color:rgba(0,59,111,.3);background:rgba(0,59,111,.07)}
-.wp-orange{color:var(--blue-light);border-color:rgba(46,141,232,.3);background:rgba(46,141,232,.07)}
-
-/* ── DIAGRAM ── */
-.diagram-block{margin:24px 0 28px}
-.diagram-label{
-  font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:12px;
-}
-.diagram-wrap{
-  border:1px solid var(--border);border-radius:6px;
-  background:var(--white);overflow:hidden;padding:24px 16px 12px;
-}
-.section-alt .diagram-wrap{background:var(--off-white)}
-/* SVG node styles */
-.diagram-wrap svg .th{font-family:'Montserrat',sans-serif;fill:#1a2533;font-size:13px;font-weight:600}
-.diagram-wrap svg .ts{font-family:'Raleway',sans-serif;fill:#6b7a8d;font-size:11.5px;font-weight:400}
-.diagram-wrap svg .arr{fill:none;stroke:#a0b5cc;stroke-width:1.5px}
-.diagram-wrap svg .node{cursor:default}
-/* teal */
-.diagram-wrap svg .c-teal rect{fill:#e6f7f2;stroke:#0b8c6e;stroke-width:1px}
-.diagram-wrap svg .c-teal .th{fill:#0b5c48}
-.diagram-wrap svg .c-teal .ts{fill:#0b8c6e}
-/* coral/red */
-.diagram-wrap svg .c-coral rect{fill:#fdf0ec;stroke:#c94e2e;stroke-width:1px}
-.diagram-wrap svg .c-coral .th{fill:#7a2012}
-.diagram-wrap svg .c-coral .ts{fill:#c94e2e}
-/* blue */
-.diagram-wrap svg .c-blue rect{fill:#e8f2fb;stroke:#1a6fc4;stroke-width:1px}
-.diagram-wrap svg .c-blue .th{fill:#003B6F}
-.diagram-wrap svg .c-blue .ts{fill:#1a6fc4}
-/* purple */
-.diagram-wrap svg .c-purple rect{fill:#f0ecfb;stroke:#5b3fa6;stroke-width:1px}
-.diagram-wrap svg .c-purple .th{fill:#3a2469}
-.diagram-wrap svg .c-purple .ts{fill:#5b3fa6}
-/* gray */
-.diagram-wrap svg .c-gray rect{fill:#f0f2f5;stroke:#8a9ab0;stroke-width:1px}
-.diagram-wrap svg .c-gray .th{fill:#2c3e50}
-.diagram-wrap svg .c-gray .ts{fill:#6b7a8d}
-/* amber */
-.diagram-wrap svg .c-amber rect{fill:#fef6e6;stroke:#b87400;stroke-width:1px}
-.diagram-wrap svg .c-amber .th{fill:#5c3a00}
-.diagram-wrap svg .c-amber .ts{fill:#b87400}
-
-/* ── RESULT CARDS ── */
-.result-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.result-cards.cols-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.result-cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.result-cards,.result-cards.cols-3{grid-template-columns:1fr}}
-.rcard{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:6px;padding:20px;
-  border-top:3px solid var(--blue-light);
-}
-.section-alt .rcard{background:var(--off-white)}
-.rcard-val{
-  font-family:'Montserrat',sans-serif;
-  font-size:22px;font-weight:900;
-  color:var(--blue-dark);letter-spacing:-.01em;
-  line-height:1;margin-bottom:6px;
-}
-.rcard-val.text{font-size:15px;font-weight:700;color:var(--blue-mid);line-height:1.3}
-.rcard-label{font-size:12px;color:var(--gray);line-height:1.5;font-weight:500}
-
-/* ── CONTACT ICONS ── */
-.contact-links .btn svg{display:inline-block;vertical-align:middle;margin-right:6px}
-.stack-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.sch{
-  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.05em;
-  padding:6px 14px;
-  background:var(--white);
-  border:1.5px solid var(--border);border-radius:3px;
-  color:var(--gray);
-  transition:border-color .2s,color .2s;
-}
-.section-alt .sch{background:var(--off-white)}
-.sch:hover{border-color:var(--blue-light);color:var(--blue)}
-
-/* ── CONTACT ── */
-#contact{
-  background:var(--blue-dark);color:var(--white);
-  text-align:center;padding:96px 48px;
-}
-#contact .section-label{color:rgba(255,255,255,.5)}
-#contact .section-title{color:var(--white)}
-#contact .section-line{margin:16px auto 32px}
-#contact p{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-
-/* ── FOOTER ── */
-footer{
-  background:#001f3d;color:rgba(255,255,255,.4);
-  text-align:center;padding:24px 48px;
-  font-size:12px;letter-spacing:.06em;
-}
-footer a{color:var(--blue-light);text-decoration:none}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:768px){
-  #navbar{padding:0 24px}
-  .section{padding:64px 24px}
-  #contact{padding:64px 24px}
-  .hero-container{padding:0 24px}
-  .btn-outline{margin-left:0;margin-top:12px;display:block}
-}
-</style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/sections.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/hero.css"/>
+  <link rel="stylesheet" href="css/about.css"/>
+  <link rel="stylesheet" href="css/projects.css"/>
+  <link rel="stylesheet" href="css/cards.css"/>
+  <link rel="stylesheet" href="css/diagrams.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+  <link rel="stylesheet" href="css/dark-mode.css"/>
 </head>
 <body>
 
@@ -447,6 +33,10 @@ footer a{color:var(--blue-light);text-decoration:none}
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -521,8 +111,6 @@ footer a{color:var(--blue-light);text-decoration:none}
 
     <!-- ── MISSION 01 ── -->
     <div class="project-item reveal">
-
-      <!-- HEADER: title + tags -->
       <div class="project-item-header">
         <div class="project-info">
           <div class="project-num">Mission 01</div>
@@ -536,14 +124,12 @@ footer a{color:var(--blue-light);text-decoration:none}
             <span class="ptag pt-blue">Grafana</span>
           </div>
         </div>
-        <!-- CONTEXT -->
         <div class="project-visual">
           <div class="narrative-label">Context</div>
           <p class="project-desc">Progressive migration of a multi-airline ticketing platform from on-premise to Microsoft Azure — requiring strong observability, and test reliability.</p>
         </div>
       </div>
 
-      <!-- CHALLENGES -->
       <div class="narrative-block">
         <div class="narrative-label">Challenges</div>
         <ul class="challenge-list">
@@ -554,7 +140,6 @@ footer a{color:var(--blue-light);text-decoration:none}
         </ul>
       </div>
 
-      <!-- WHAT I DID -->
       <div class="narrative-block">
         <div class="narrative-label">What I did</div>
         <div class="work-cards">
@@ -581,7 +166,6 @@ footer a{color:var(--blue-light);text-decoration:none}
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div class="narrative-block">
         <div class="narrative-label">Results</div>
         <div class="result-cards">
@@ -603,13 +187,10 @@ footer a{color:var(--blue-light);text-decoration:none}
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- ── MISSION 02 ── -->
     <div class="project-item reveal">
-
-      <!-- HEADER: title + tags -->
       <div class="project-item-header">
         <div class="project-info">
           <div class="project-num">Mission 02</div>
@@ -625,14 +206,12 @@ footer a{color:var(--blue-light);text-decoration:none}
             <span class="ptag pt-blue">OpenShift</span>
           </div>
         </div>
-        <!-- CONTEXT -->
         <div class="project-visual">
           <div class="narrative-label">Context</div>
           <p class="project-desc">Order Management System designed to handle airline orders in a high-availability environment. The platform is built on microservices deployed on Kubernetes, leveraging Event-Driven and Service-Oriented Architectures. It operates across multiple environments (INT, Development, UAT, Pre-Production, and Production), distributed over several clusters.</p>
         </div>
       </div>
 
-      <!-- CHALLENGES -->
       <div class="narrative-block">
         <div class="narrative-label">Challenges</div>
         <ul class="challenge-list">
@@ -645,7 +224,6 @@ footer a{color:var(--blue-light);text-decoration:none}
         </ul>
       </div>
 
-      <!-- WHAT I DID -->
       <div class="narrative-block">
         <div class="narrative-label">What I did</div>
         <div class="work-cards cols-3">
@@ -682,7 +260,6 @@ footer a{color:var(--blue-light);text-decoration:none}
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div class="narrative-block">
         <div class="narrative-label">Results</div>
         <div class="result-cards cols-3">
@@ -713,7 +290,7 @@ footer a{color:var(--blue-light);text-decoration:none}
         </div>
       </div>
 
-      <!-- TECHNICAL DEEP-DIVE (diagrams) -->
+      <!-- TECHNICAL DEEP-DIVE -->
       <div class="narrative-block">
         <div class="narrative-label">Technical deep-dive</div>
 
@@ -722,17 +299,13 @@ footer a{color:var(--blue-light);text-decoration:none}
           <svg width="100%" viewBox="0 0 640 730" role="img">
             <title>Dev to Custom Phase migration</title>
             <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#a0b5cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
-
-            <!-- ── MIGRATION 1 label ── -->
             <text class="th" x="350" y="20" text-anchor="middle" font-size="12">Migration 1 — Completed with side effect</text>
             <line x1="90" y1="28" x2="610" y2="28" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="4 3"/>
-
             <line x1="70" y1="36" x2="70" y2="340" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="4 4"/>
-            <text class="ts" x="38" y="58" text-anchor="middle">Prep</text>
+            <text class="ts" x="38" y="58"  text-anchor="middle">Prep</text>
             <text class="ts" x="38" y="138" text-anchor="middle">Stop</text>
             <text class="ts" x="38" y="218" text-anchor="middle">Data</text>
             <text class="ts" x="38" y="298" text-anchor="middle">Activate</text>
-
             <g class="node c-teal">
               <rect x="90" y="36" width="520" height="46" rx="5"/>
               <text class="th" x="350" y="54" text-anchor="middle" dominant-baseline="central">Deploy new namespace</text>
@@ -757,28 +330,20 @@ footer a{color:var(--blue-light);text-decoration:none}
               <text class="th" x="350" y="296" text-anchor="middle" dominant-baseline="central">Activate flow · reactivate CI/CD · validate</text>
               <text class="ts" x="350" y="314" text-anchor="middle" dominant-baseline="central">New namespace live · functional validation passed</text>
             </g>
-
-            <!-- Side effect annotation -->
             <rect x="90" y="340" width="520" height="46" rx="5" fill="#fdf0ec" stroke="#c94e2e" stroke-width="1" stroke-dasharray="4 3"/>
             <text font-family="Montserrat,sans-serif" font-size="12" font-weight="600" fill="#7a2012" x="350" y="358" text-anchor="middle" dominant-baseline="central">⚠ Side effect observed</text>
             <text font-family="Raleway,sans-serif" font-size="11.5" fill="#c94e2e" x="350" y="376" text-anchor="middle" dominant-baseline="central">MongoDB CPU hit 100% — other microservices in other namespaces impacted · root cause analysed</text>
-
-            <!-- Fix prepared box -->
             <rect x="90" y="402" width="520" height="56" rx="5" fill="#fff8e6" stroke="#b87400" stroke-width="1" stroke-dasharray="4 3"/>
             <text font-family="Montserrat,sans-serif" font-size="12" font-weight="600" fill="#5c3a00" x="350" y="420" text-anchor="middle" dominant-baseline="central">Fix prepared before Migration 2</text>
             <text font-family="Raleway,sans-serif" font-size="11.5" fill="#b87400" x="217" y="444" text-anchor="middle">Reduce simultaneous injections</text>
             <text font-family="Raleway,sans-serif" font-size="11.5" fill="#b87400" x="483" y="444" text-anchor="middle">Add time delay between batches</text>
-
-            <!-- ── MIGRATION 2 label ── -->
             <text class="th" x="350" y="484" text-anchor="middle" font-size="12">Migration 2 — Clean run</text>
             <line x1="90" y1="490" x2="610" y2="490" stroke="#0b8c6e" stroke-width="0.5" stroke-dasharray="4 3"/>
-
             <line x1="70" y1="496" x2="70" y2="720" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="4 4"/>
             <text class="ts" x="38" y="516" text-anchor="middle">Stop</text>
             <text class="ts" x="38" y="586" text-anchor="middle">Data</text>
             <text class="ts" x="38" y="656" text-anchor="middle">Activate</text>
             <text class="ts" x="38" y="706" text-anchor="middle">Cleanup</text>
-
             <g class="node c-coral">
               <rect x="90" y="498" width="520" height="36" rx="5"/>
               <text class="th" x="350" y="516" text-anchor="middle" dominant-baseline="central">Stop flow and CI/CD in dev namespace</text>
@@ -808,18 +373,18 @@ footer a{color:var(--blue-light);text-decoration:none}
             <title>Gulf carrier airline UAT to PreProd multi-cluster migration</title>
             <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#a0b5cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
             <text class="th" x="320" y="24" text-anchor="middle">Gulf carrier airline — UAT → PreProd (multi-cluster)</text>
-            <rect x="20" y="38" width="278" height="376" rx="7" fill="none" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="5 4"/>
+            <rect x="20"  y="38" width="278" height="376" rx="7" fill="none" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="5 4"/>
             <text class="ts" x="159" y="54" text-anchor="middle">Cluster A — UAT</text>
             <rect x="342" y="38" width="278" height="376" rx="7" fill="none" stroke="#d0dce8" stroke-width="0.5" stroke-dasharray="5 4"/>
             <text class="ts" x="481" y="54" text-anchor="middle">Cluster B — PreProd</text>
             <g class="node c-coral">
               <rect x="32" y="62" width="254" height="62" rx="5"/>
-              <text class="th" x="159" y="86" text-anchor="middle" dominant-baseline="central">Stop Event Mesh flow</text>
+              <text class="th" x="159" y="86"  text-anchor="middle" dominant-baseline="central">Stop Event Mesh flow</text>
               <text class="ts" x="159" y="106" text-anchor="middle" dominant-baseline="central">Event Mesh flow halted on Cluster A</text>
             </g>
             <g class="node c-teal">
               <rect x="354" y="62" width="254" height="62" rx="5"/>
-              <text class="th" x="481" y="82" text-anchor="middle" dominant-baseline="central">Deploy PreProd namespace</text>
+              <text class="th" x="481" y="82"  text-anchor="middle" dominant-baseline="central">Deploy PreProd namespace</text>
               <text class="ts" x="481" y="100" text-anchor="middle" dominant-baseline="central">K8s namespace on Cluster B</text>
               <text class="ts" x="481" y="116" text-anchor="middle" dominant-baseline="central">ACL fix · Kafka Topic Operator fix via Argo CD</text>
             </g>
@@ -879,15 +444,14 @@ footer a{color:var(--blue-light);text-decoration:none}
               <text class="th" x="320" y="576" text-anchor="middle" dominant-baseline="central">Realign UAT namespace on Cluster A</text>
               <text class="ts" x="320" y="596" text-anchor="middle" dominant-baseline="central">UAT namespace re-pointed to correct UAT flow (was previously consuming PreProd)</text>
             </g>
-            <g class="c-coral"><rect x="60" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="76" y="672" dominant-baseline="central">Halt</text>
-            <g class="c-teal"><rect x="120" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="136" y="672" dominant-baseline="central">Deploy/Activate</text>
-            <g class="c-blue"><rect x="246" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="262" y="672" dominant-baseline="central">Data migration</text>
+            <g class="c-coral"><rect x="60"  y="666" width="11" height="11" rx="2"/></g><text class="ts" x="76"  y="672" dominant-baseline="central">Halt</text>
+            <g class="c-teal"><rect  x="120" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="136" y="672" dominant-baseline="central">Deploy/Activate</text>
+            <g class="c-blue"><rect  x="246" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="262" y="672" dominant-baseline="central">Data migration</text>
             <g class="c-amber"><rect x="360" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="376" y="672" dominant-baseline="central">Queue config / Realign</text>
             <g class="c-purple"><rect x="490" y="666" width="11" height="11" rx="2"/></g><text class="ts" x="506" y="672" dominant-baseline="central">Validate</text>
           </svg>
         </div>
       </div>
-
     </div>
 
   </div>
@@ -908,17 +472,9 @@ footer a{color:var(--blue-light);text-decoration:none}
   </div>
 </section>
 
-<script>
-// Nav scroll effect
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)
-})
-// Scroll reveal
-const revealEls=document.querySelectorAll('.reveal')
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
-},{threshold:0.1})
-revealEls.forEach(el=>io.observe(el))
-</script>
+<!-- Scripts -->
+<script src="js/navbar.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

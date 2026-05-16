@@ -1,0 +1,19 @@
+/* ── CSS CUSTOM PROPERTIES ── */
+:root {
+  --blue-dark:  #003B6F;
+  --blue:       #0057A8;
+  --blue-mid:   #1a6fc4;
+  --blue-light: #2E8DE8;
+  --blue-pale:  #e8f2fb;
+  --white:      #ffffff;
+  --off-white:  #f9fafb;
+  --light:      #eef3f8;
+  --gray:       #6b7a8d;
+  --dark:       #1a2533;
+  --text:       #2c3e50;
+  --border:     #d0dce8;
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,67 @@
+/* ── NAVBAR ── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+
+#navbar.scrolled { box-shadow: 0 2px 20px rgba(0, 87, 168, 0.1); }
+
+.nav-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 20px;
+  color: var(--blue-dark); text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-brand span { color: var(--blue-light); }
+
+.nav-links { display: flex; gap: 32px; list-style: none; }
+
+.nav-links a {
+  font-size: 13px; font-weight: 600;
+  color: var(--gray); text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px; background: var(--blue-light);
+  transition: width 0.25s;
+}
+
+.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ── THEME TOGGLE BUTTON ── */
+#theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+  border-color: var(--blue-light);
+  color: var(--blue-light);
+  background: var(--blue-pale);
+}
+
+#theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
+.icon-sun { display: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  #navbar { padding: 0 24px; }
+}

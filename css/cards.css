@@ -1,0 +1,109 @@
+/* ── METRICS STRIP ── */
+.metrics-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; margin-bottom: 28px;
+}
+
+@media (max-width: 640px) { .metrics-strip { grid-template-columns: repeat(2, 1fr); } }
+
+.ms-cell { background: var(--white); padding: 18px 16px; position: relative; }
+.section-alt .ms-cell { background: var(--off-white); }
+
+.ms-cell::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.ms-c1::before { background: var(--blue-dark); }
+.ms-c2::before { background: var(--blue); }
+.ms-c3::before { background: var(--blue-mid); }
+.ms-c4::before { background: var(--blue-light); }
+
+.ms-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px; font-weight: 900;
+  letter-spacing: -0.01em; line-height: 1; margin-bottom: 4px;
+}
+
+.ms-c1 .ms-val { color: var(--blue-dark); }
+.ms-c2 .ms-val { color: var(--blue); }
+.ms-c3 .ms-val { color: var(--blue-mid); }
+.ms-c4 .ms-val { color: var(--blue-light); }
+.ms-label { font-size: 11px; color: var(--gray); line-height: 1.5; font-weight: 500; }
+
+/* ── WORK CARDS ── */
+.work-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+.work-cards.cols-2 { grid-template-columns: 1fr 1fr; }
+.work-cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) { .work-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .work-cards, .work-cards.cols-2, .work-cards.cols-3 { grid-template-columns: 1fr; } }
+
+.wcard {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.section-alt .wcard { background: var(--off-white); }
+.wcard:hover { border-color: var(--blue-light); box-shadow: 0 4px 20px rgba(0, 87, 168, 0.08); }
+
+.wcard-num {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  color: var(--blue-light); letter-spacing: 0.1em; margin-bottom: 8px;
+}
+
+.wcard-title { font-size: 14px; font-weight: 600; color: var(--blue-dark); margin-bottom: 8px; }
+.wcard-body  { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.wcard-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+.wpill {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 3px 10px; border-radius: 20px; border: 1.5px solid;
+}
+
+.wp-green  { color: var(--blue-dark); border-color: rgba(0, 87, 168, 0.3);   background: rgba(0, 87, 168, 0.07); }
+.wp-blue   { color: var(--blue);      border-color: rgba(0, 87, 168, 0.3);   background: rgba(0, 87, 168, 0.07); }
+.wp-purple { color: var(--blue-mid);  border-color: rgba(26, 111, 196, 0.3); background: rgba(26, 111, 196, 0.07); }
+.wp-amber  { color: var(--blue-dark); border-color: rgba(0, 59, 111, 0.3);   background: rgba(0, 59, 111, 0.07); }
+.wp-orange { color: var(--blue-light);border-color: rgba(46, 141, 232, 0.3); background: rgba(46, 141, 232, 0.07); }
+
+/* ── RESULT CARDS ── */
+.result-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.result-cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) { .result-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .result-cards, .result-cards.cols-3 { grid-template-columns: 1fr; } }
+
+.rcard {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 20px;
+  border-top: 3px solid var(--blue-light);
+}
+
+.section-alt .rcard { background: var(--off-white); }
+
+.rcard-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px; font-weight: 900;
+  color: var(--blue-dark); letter-spacing: -0.01em;
+  line-height: 1; margin-bottom: 6px;
+}
+
+.rcard-val.text { font-size: 15px; font-weight: 700; color: var(--blue-mid); line-height: 1.3; }
+.rcard-label { font-size: 12px; color: var(--gray); line-height: 1.5; font-weight: 500; }
+
+/* ── STACK CHIPS ── */
+.stack-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+.sch {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  background: var(--white);
+  border: 1.5px solid var(--border); border-radius: 3px;
+  color: var(--gray);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.section-alt .sch { background: var(--off-white); }
+.sch:hover { border-color: var(--blue-light); color: var(--blue); }

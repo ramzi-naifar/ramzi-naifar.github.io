@@ -1,0 +1,40 @@
+/* ── ABOUT GRID ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+
+.about-text p { font-size: 16px; line-height: 1.8; color: var(--gray); margin-bottom: 16px; }
+.about-text p strong { color: var(--text); font-weight: 600; }
+
+.about-stack { margin-top: 32px; }
+
+.about-stack-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--blue-dark); margin-bottom: 14px;
+}
+
+/* ── CHIPS ── */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  font-size: 12px; font-weight: 600;
+  padding: 5px 14px; border-radius: 2px;
+  background: var(--blue-pale); color: var(--blue-dark);
+  border: 1px solid rgba(0, 87, 168, 0.15);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── ABOUT VISUAL (code block) ── */
+.about-visual {
+  background: var(--blue-dark); border-radius: 8px;
+  padding: 32px; color: var(--white);
+  font-family: 'Montserrat', monospace; font-size: 13px;
+  line-height: 1.9;
+}
+
+.av-line  { color: rgba(255, 255, 255, 0.4); }
+.av-key   { color: var(--blue-light); }
+.av-val   { color: #a8d4ff; }
+.av-str   { color: #7ee8c8; }
+.av-num   { color: #ffcf7e; }

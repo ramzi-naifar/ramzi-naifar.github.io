@@ -1,0 +1,78 @@
+/* ── PROJECT ITEM ── */
+.project-item {
+  display: flex; flex-direction: column;
+  gap: 32px; align-items: stretch;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-item:last-child { border-bottom: none; }
+
+.project-item-header {
+  display: grid; grid-template-columns: 2fr 3fr;
+  gap: 48px; align-items: start;
+}
+
+@media (max-width: 768px) { .project-item-header { grid-template-columns: 1fr; } }
+
+.project-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--blue-light);
+  margin-bottom: 10px; text-transform: uppercase;
+}
+
+.project-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 900; color: var(--blue-dark);
+  margin-bottom: 12px; letter-spacing: -0.01em; line-height: 1.1;
+}
+
+.project-desc { font-size: 15px; line-height: 1.75; color: var(--gray); margin-bottom: 24px; }
+
+/* ── PROJECT TAGS ── */
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+
+.ptag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 11px; border-radius: 2px; border: 1.5px solid;
+}
+
+.pt-blue   { color: var(--blue); border-color: rgba(0, 87, 168, 0.3); background: rgba(0, 87, 168, 0.06); }
+.pt-teal   { color: var(--blue); border-color: rgba(0, 87, 168, 0.3); background: rgba(0, 87, 168, 0.06); }
+.pt-amber  { color: var(--blue); border-color: rgba(0, 87, 168, 0.3); background: rgba(0, 87, 168, 0.06); }
+.pt-red    { color: var(--blue); border-color: rgba(0, 87, 168, 0.3); background: rgba(0, 87, 168, 0.06); }
+.pt-purple { color: var(--blue); border-color: rgba(0, 87, 168, 0.3); background: rgba(0, 87, 168, 0.06); }
+
+/* ── NARRATIVE ── */
+.narrative-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue-light);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.narrative-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.narrative-block { margin-bottom: 32px; }
+
+/* ── CHALLENGE LIST ── */
+.challenge-list { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.challenge-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 13.5px; color: var(--gray); line-height: 1.6;
+  padding: 10px 14px;
+  border-left: 3px solid var(--blue-light);
+  background: var(--blue-pale); border-radius: 0 4px 4px 0;
+}
+
+.challenge-list li::before {
+  content: '↳';
+  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 11px;
+  color: var(--blue-light); flex-shrink: 0; margin-top: 2px;
+}
