@@ -47,3 +47,6 @@ body.dark .wcard:hover    { box-shadow: 0 4px 20px rgba(46, 141, 232, 0.1); }
 /* ── DIAGRAMS ── */
 body.dark .diagram-wrap            { background: #111d2b; border-color: #1e3454; }
 body.dark .section-alt .diagram-wrap { background: #0f1923; }
+/* standalone SVG section titles (not inside a colored node rect) */
+body.dark .diagram-wrap svg .svg-title   { fill: #c8ddf0; }
+body.dark .diagram-wrap svg .svg-subtitle { fill: #8fa3bb; }
